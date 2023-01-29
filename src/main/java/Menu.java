@@ -30,7 +30,8 @@ public class Menu {
 			int option = Integer.parseInt(menu);
 			switch (option) {
 			case 1:
-				ShopSetting.insertdata();
+//				ShopSetting.insertdata();
+				ShopSetting.insertItemdata();
 				break;
 
 			case 2:

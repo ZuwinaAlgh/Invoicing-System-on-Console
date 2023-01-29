@@ -14,6 +14,7 @@ import com.google.gson.JsonParser;
 
 public class ShopSetting {
 
+	//insert data into Customer invoice
 	public static void insertdata() throws IOException, InterruptedException{
 		
 		String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
@@ -70,8 +71,59 @@ public class ShopSetting {
 
         catch (Exception ex) {
             System.err.println(ex);
-        }
-        }
+        }}}
+        
+        
+        //insert data into ITEMS table
+        public static void insertItemdata() throws IOException, InterruptedException{
+    		
+    		String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+            String user = "sa";
+            String pass = "root";
+            
+            Scanner sa=new Scanner(System.in);
+            BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+            
+            System.out.println("...Enter ITEMS Details...:");
+            System.out.println("...How Many Rows You Want To Enter...:");
+            int rows=sa.nextInt();
+            for(int i=0; i<=rows;i++) {
+            System.out.println("Enter Item Name:");
+            String Item_Name =bf.readLine();
+            System.out.println("Enter Unit price:");
+            float Unit_price=sa.nextFloat();
+            System.out.println("Enter Quantity:");
+            int Quantity=sa.nextInt();
+            System.out.println("Enter Quantity Amount:");
+            float Quantity_Amount=sa.nextFloat();
+            
+            
+            
+            String sql="insert into ITEMS(Item_Name, Unit_price, Quantity, Quantity_Amount)VALUES(?,?,?,?)";
+            
+            Connection con = null;
+
+            try {
+
+                Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                DriverManager.registerDriver(driver);
+
+                con = DriverManager.getConnection(url, user, pass);
+                PreparedStatement ps=con.prepareStatement(sql);
+                
+                ps.setString(1, Item_Name);
+                ps.setFloat(2, Unit_price);
+                ps.setInt(3, Quantity);
+                ps.setFloat(4, Quantity_Amount);
+                ps.executeUpdate();
+
+                    System.out.println( "insert data successfully");
+            }
+
+            catch (Exception ex) {
+                System.err.println(ex);
+            }
+            }
 	}
 
 	}
