@@ -37,7 +37,7 @@ public class Menu{
 				ManageShopItems.ManageShopMenu();
 				break;
 			case 3:
-				
+				NewInvoice.createNewInvoice();
 				break;
 			case 4:
 				
