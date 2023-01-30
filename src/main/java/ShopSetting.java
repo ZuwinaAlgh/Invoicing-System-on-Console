@@ -13,7 +13,42 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 
 public class ShopSetting {
-
+	// Shop Setting Menu
+	public static void ShopSettingMenu()throws IOException, InterruptedException{
+		boolean mainMenu= true;
+		boolean ShopSettingMenu= true;
+		Scanner sa = new Scanner(System.in);
+		
+	while (ShopSettingMenu) {
+		System.out.println("###..........SHOP SETTING..........###");
+		System.out.println("###Please choose one option........###");
+		System.out.println("1.--Load Data (invoices)--");
+		System.out.println("2.--Load Data (Items)--");
+		System.out.println("3.--Set Shop Name--");
+		System.out.println("4.--Set Invoice Header--");
+		System.out.println("5.--Go Back To MAIN MENU--");
+		System.out.println("###............THANK YOU............###");
+		String ShopSettingMenu1 = sa.next();
+		int option = Integer.parseInt(ShopSettingMenu1);
+		switch (option) {
+		case 1:
+			ShopSetting.insertdata();
+			break;
+		case 2:
+			ShopSetting.insertItemdata();
+			break;
+		case 3:
+			ShopSetting.insertShopdata();
+			break;
+		case 4:
+			ShopSetting.insertInvoiceHeaderdata();
+			break;
+		case 5:	
+			ShopSettingMenu=false;
+			mainMenu=true;
+		}}}
+	
+	
 	//insert data into Customer invoice
 	public static void insertdata() throws IOException, InterruptedException{
 		
@@ -218,7 +253,9 @@ public class ShopSetting {
                         System.err.println(ex);
                     }
                     }
-	}
+	                }
+                
+                  
 
 	}
 

@@ -11,6 +11,45 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class ManageShopItems {
+	public static void ManageShopMenu()throws IOException, InterruptedException{
+		boolean mainMenu= true;
+		boolean ShopSettingMenu= true;
+		boolean ManageShopMenu=true;
+		Scanner sa = new Scanner(System.in);
+		while (ManageShopMenu) {
+			System.out.println("###..........MANAGE SHOP..........###");
+			System.out.println("###Please choose one option........###");
+			System.out.println("1.--Add Items--");
+			System.out.println("2.--Delete Items--");
+			System.out.println("3.--Change Item Price --");
+			System.out.println("4.--Report All Items--");
+			System.out.println("5.--Go Back TO MAIN MENU--");
+			System.out.println("###............THANK YOU............###");
+			String ManageShopMenu1 = sa.next();
+			int option = Integer.parseInt(ManageShopMenu1);
+			switch (option) {
+			case 1:
+				ManageShopItems.addItems();
+				break;
+
+			case 2:
+				ManageShopItems.deleteItems();
+				break;
+			case 3:
+				ManageShopItems.ChangeItemPrice();
+				break;
+			case 4:
+				ManageShopItems.ReportAllItems();
+				break;
+			case 5:
+				ManageShopMenu=false;
+				ShopSettingMenu=false;
+				mainMenu=false;
+			}
+
+		}
+	}
+	
 
 	 public static void addItems() throws IOException, InterruptedException{
  		
@@ -168,7 +207,8 @@ public class ManageShopItems {
                      int Quantity=rs.getInt("Quantity");
                      float Quantity_Amount= rs.getFloat("Quantity_Amount");
                      int Shop_Id=rs.getInt("Shop_Id");
-                     System.out.println("Item_Id:"+Item_Id +" "+"Item_Name:"+Item_Name+" "+"Unit_price:"+Unit_price+" "+"Quantity:"+Quantity+" "+"Quantity_Amount:"+Quantity_Amount+" " +"Shop_Id:"+Shop_Id);
+                     System.out.println("...Report Items...");
+                     System.out.println("Item_Id:"+Item_Id +" \n "+"Item_Name:"+Item_Name+" \n "+"Unit_price:"+Unit_price+" \n"+"Quantity:"+Quantity+" \n"+"Quantity_Amount:"+Quantity_Amount+"\n " +"Shop_Id:"+Shop_Id );
                      count++;
                      
                
@@ -185,9 +225,9 @@ public class ManageShopItems {
                  
              	
      		
-     	}   
+     	}   }
 	 
-             }
+       
 	 
 
 
