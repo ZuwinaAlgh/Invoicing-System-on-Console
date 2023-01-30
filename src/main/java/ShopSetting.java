@@ -123,7 +123,101 @@ public class ShopSetting {
             catch (Exception ex) {
                 System.err.println(ex);
             }
-            }
+            }}
+            //insert shop data
+            public static void insertShopdata() throws IOException, InterruptedException{
+        		
+        		String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+                String user = "sa";
+                String pass = "root";
+                
+                Scanner sa=new Scanner(System.in);
+                BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+                
+                System.out.println("...Enter Shop Details...:");
+                System.out.println("...How Many Rows You Want To Enter...:");
+                int rows=sa.nextInt();
+                for(int i=0; i<=rows;i++) {
+                System.out.println("Enter Shop Name:");
+                String Shop_Name =bf.readLine();
+            
+                
+                
+                
+                String sql="insert into Shop(Shop_Name)VALUES(?)";
+                
+                Connection con = null;
+
+                try {
+
+                    Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                    DriverManager.registerDriver(driver);
+
+                    con = DriverManager.getConnection(url, user, pass);
+                    PreparedStatement ps=con.prepareStatement(sql);
+                    
+                    ps.setString(1, Shop_Name);
+                    ps.executeUpdate();
+
+                        System.out.println( "insert data successfully");
+                }
+
+                catch (Exception ex) {
+                    System.err.println(ex);
+                }
+                }}
+            //insert header data
+                public static void insertInvoiceHeaderdata() throws IOException, InterruptedException{
+            		
+            		String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+                    String user = "sa";
+                    String pass = "root";
+                    
+                    Scanner sa=new Scanner(System.in);
+                    BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+                    
+                    System.out.println("...Enter Invoice Header Details...:");
+                    System.out.println("...How Many Rows You Want To Enter...:");
+                    int rows=sa.nextInt();
+                    for(int i=0; i<=rows;i++) {
+                    System.out.println("Enter Tel Number:");
+                    int Tel=sa.nextInt();
+                    System.out.println("Enter Fax Number:");
+                    int Fax=sa.nextInt();
+                    System.out.println("Enter Email Number:");
+                    String Email=bf.readLine();
+                    System.out.println("Enter Website:");
+                    String Website=bf.readLine();
+                    
+                
+                    
+                    
+                    
+                    String sql="insert into InvoiceHeader(Tel,Fax,Email,Website)VALUES(?,?,?,?)";
+                    
+                    Connection con = null;
+
+                    try {
+
+                        Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                        DriverManager.registerDriver(driver);
+
+                        con = DriverManager.getConnection(url, user, pass);
+                        PreparedStatement ps=con.prepareStatement(sql);
+                        
+                        ps.setInt(1, Tel);
+                        ps.setInt(2, Fax);
+                        ps.setString(3, Email);
+                        ps.setString(4, Website);
+                        ps.executeUpdate();
+
+                            System.out.println( "insert data successfully");
+                    }
+
+                    catch (Exception ex) {
+                        System.err.println(ex);
+                    }
+                    }
 	}
 
 	}
