@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class ManageShopItems {
@@ -57,9 +59,85 @@ public class ManageShopItems {
          catch (Exception ex) {
              System.err.println(ex);
          }
-         }}
-		
+         }
+	 }
+	 
+         // delete items
+         public static void deleteItems() throws IOException, InterruptedException{
+         	
+         	String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+             String user = "sa";
+             String pass = "root";
+             
+             Connection con = null;
 
-	}
+             try {
+
+                 Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                 DriverManager.registerDriver(driver);
+
+                 con = DriverManager.getConnection(url, user, pass);
+
+                 Statement st = con.createStatement();
+                
+                 Scanner sa=new Scanner(System.in);
+             	
+            
+                 System.out.println("Enter Item id: ");
+                 int idinput =sa.nextInt();
+                 String sql ="DELETE FROM ITEMS WHERE Item_Id = '"+idinput+"'";
+                 ResultSet rs=st.executeQuery(sql);
+              
+                 
+                      
+                 }
+           
+             
+
+             catch (Exception ex) {
+                 System.err.println(ex);
+             }	}
+
+            //Change Item Price
+             public static void ChangeItemPrice() throws IOException, InterruptedException{
+              	
+            	 String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+                 String user = "sa";
+                 String pass = "root";
+                 
+                 Connection con = null;
+
+                 try {
+
+                     Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                     DriverManager.registerDriver(driver);
+
+                     con = DriverManager.getConnection(url, user, pass);
+                     Statement st = con.createStatement();
+                    
+                     Scanner sa=new Scanner(System.in);
+                 	 System.out.println("Enter id: ");
+                     int idinput =sa.nextInt();
+                     System.out.println("Enter new Unit price :");
+                     float Unit_price=sa.nextFloat();
+              
+                     String sql = "UPDATE ITEMS SET Unit_price = '"+Unit_price+"' WHERE Item_Id = '"+idinput+"'";
+                     ResultSet rs=st.executeQuery(sql);
+                     
+                          
+                    
+                     }
+               
+                 
+
+                 catch (Exception ex) {
+                     System.err.println(ex);
+                 }	
+             	
+     		
+     	}   
+	 
+             }
+	 
 
 

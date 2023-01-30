@@ -110,10 +110,10 @@ public class Menu {
 				break;
 
 			case 2:
-
+				ManageShopItems.deleteItems();
 				break;
 			case 3:
-				
+				ManageShopItems.ChangeItemPrice();
 				break;
 			case 4:
 				break;
