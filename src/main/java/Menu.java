@@ -116,6 +116,7 @@ public class Menu {
 				ManageShopItems.ChangeItemPrice();
 				break;
 			case 4:
+				ManageShopItems.ReportAllItems();
 				break;
 			case 5:
 					

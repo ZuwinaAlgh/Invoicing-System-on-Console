@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -99,7 +100,7 @@ public class ManageShopItems {
              }	}
 
             //Change Item Price
-             public static void ChangeItemPrice() throws IOException, InterruptedException{
+           public static void ChangeItemPrice() throws IOException, InterruptedException{
               	
             	 String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
                  String user = "sa";
@@ -132,7 +133,56 @@ public class ManageShopItems {
 
                  catch (Exception ex) {
                      System.err.println(ex);
-                 }	
+                 }	}
+                
+           
+                 //Report All Items
+        public static void ReportAllItems() throws IOException, InterruptedException{
+                   	
+        	String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+            String user = "sa";
+            String pass = "root";
+            
+            Connection con = null;
+
+            try {
+
+                Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                DriverManager.registerDriver(driver);
+
+                con = DriverManager.getConnection(url, user, pass);
+
+                Statement st = con.createStatement();
+               
+                Scanner sa=new Scanner(System.in);
+            	System.out.println("How many Items you want to read: ");
+                int read =sa.nextInt();
+                int count=0;
+                String sql="select * from ITEMS";
+                ResultSet rs=st.executeQuery(sql);
+                
+                while (rs.next()&&count<=read) {
+                	 int Item_Id=rs.getInt("Item_Id");
+                     String Item_Name=rs.getString("Item_Name");
+                     float Unit_price= rs.getFloat("Unit_price");
+                     int Quantity=rs.getInt("Quantity");
+                     float Quantity_Amount= rs.getFloat("Quantity_Amount");
+                     int Shop_Id=rs.getInt("Shop_Id");
+                     System.out.println("Item_Id:"+Item_Id +" "+"Item_Name:"+Item_Name+" "+"Unit_price:"+Unit_price+" "+"Quantity:"+Quantity+" "+"Quantity_Amount:"+Quantity_Amount+" " +"Shop_Id:"+Shop_Id);
+                     count++;
+                     
+               
+                }}
+          
+            
+
+            catch (Exception ex) {
+                System.err.println(ex);
+            }	
+    		
+    		
+                 
+                 
              	
      		
      	}   
