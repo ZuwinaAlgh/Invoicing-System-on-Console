@@ -52,9 +52,22 @@ public class Menu{
 			case 7:
 				break;
 			case 8:
+				System.out.println(" (Are you sure you want to exit? If yes press 0 (program ends), if No press 1 (then main menu reprinted again))");
+				option=sa.nextInt();
+				if(option==0) {
 				mainMenu=false;
 				ShopSettingMenu=false;
 				ManageShopMenu=false;
+				}
+				else if(option==1) {
+					mainMenu=true;
+					ShopSettingMenu=false;
+					ManageShopMenu=false;
+					
+				}
+			
+				
+			
 			}
 
 		}
