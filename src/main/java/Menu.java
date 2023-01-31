@@ -4,50 +4,49 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu{
+	
 	public static void main(String[] args)throws IOException, InterruptedException{
 	boolean mainMenu= true;
 	boolean ShopSettingMenu= true;
 	boolean ManageShopMenu= true;
 	Scanner sa = new Scanner(System.in);
+
 	
-	
-	
-	//Main menu
-	
+    System.out.println("Enter User Name:");
+    String user=sa.next();
+    System.out.println("Enter Password:");
+    String pass=sa.next();
+    System.out.println("Enter url:");
+    String url=sa.next();
+    
+	    	 
+	    	//calling main menu 
 		while (mainMenu) {
-			System.out.println("###WELCOME TO GROCERIES shop SYSTEM###");
-			System.out.println("###Please choose one option........###");
-			System.out.println("1.--Shop Settings--");
-			System.out.println("2.--Manage Shop Items--");
-			System.out.println("3.--Create New Invoice--");
-			System.out.println("4.--Statistics Report--");
-			System.out.println("5.--Report All Invoices--");
-			System.out.println("6.--Search One Invoice--");
-			System.out.println("7.--Program Statistics--");
-			System.out.println("8.--Exit--");
-			System.out.println("###............THANK YOU............###");
-			String menu = sa.next();
-			int option = Integer.parseInt(menu);
+			for(String m:MainMenu.mainMenuArray()) {
+				System.out.println(m);
+			}
+			
+			int option = sa.nextInt();
 			switch (option) {
 			case 1:
-				ShopSetting.ShopSettingMenu();
+				ShopSetting.ShopSettingMenu(user,pass,url);
 				break;
 
 			case 2:
-				ManageShopItems.ManageShopMenu();
+				ManageShopItems.ManageShopMenu(user,pass,url);
 				break;
 			case 3:
-				NewInvoice.createNewInvoice();
+				NewInvoice.createNewInvoice(user,pass,url);
 				break;
 			case 4:
-				ReportInvoice.statisticsReport();
+				ReportInvoice.statisticsReport(user,pass,url);
 				break;
 
 			case 5:
-				ReportInvoice.reportAllInvoice();
+				ReportInvoice.reportAllInvoice(user,pass,url);
 				break;
 			case 6:
-				ReportInvoice.searchById();
+				ReportInvoice.searchById(user,pass,url );
 				break;
 			case 7:
 				break;
@@ -63,17 +62,10 @@ public class Menu{
 					mainMenu=true;
 					ShopSettingMenu=false;
 					ManageShopMenu=false;
-					
 				}
 			
-				
 			
-			}
-
-		}
-	
-	}}
-    	 
+			}}}}
  
 	
 

@@ -8,11 +8,8 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class ReportInvoice {
-	public static void statisticsReport() throws IOException, InterruptedException {
-	String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
-    String user = "sa";
-    String pass = "root";
-    
+	public static void statisticsReport(String user,String pass,String url) throws IOException, InterruptedException {
+
     Connection con = null;
 
     try {
@@ -44,10 +41,8 @@ public class ReportInvoice {
     }}
 
 	
-	public static void reportAllInvoice() throws IOException, InterruptedException {
-		String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
-	    String user = "sa";
-	    String pass = "root";
+	public static void reportAllInvoice(String user,String pass,String url) throws IOException, InterruptedException {
+	
 	    
 	    Connection con = null;
 
@@ -86,10 +81,8 @@ public class ReportInvoice {
 	        System.err.println(ex);
 	    }}
 	
-	public static void searchById() throws IOException, InterruptedException {
-	String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
-    String user = "sa";
-    String pass = "root";
+	public static void searchById(	String user, String pass, String url) throws IOException, InterruptedException {
+
     
     Connection con = null;
 

@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class ManageShopItems {
-	public static void ManageShopMenu()throws IOException, InterruptedException{
+	public static void ManageShopMenu(String user,String pass,String url)throws IOException, InterruptedException{
 		boolean mainMenu= true;
 		boolean ShopSettingMenu= true;
 		boolean ManageShopMenu=true;
@@ -53,7 +53,7 @@ public class ManageShopItems {
 
 	 public static void addItems() throws IOException, InterruptedException{
  		
- 		String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+ 		 String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
          String user = "sa";
          String pass = "root";
          

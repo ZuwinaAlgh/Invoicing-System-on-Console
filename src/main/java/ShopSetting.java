@@ -14,7 +14,7 @@ import com.google.gson.JsonParser;
 
 public class ShopSetting {
 	// Shop Setting Menu
-	public static void ShopSettingMenu()throws IOException, InterruptedException{
+	public static void ShopSettingMenu(String user,String pass,String url)throws IOException, InterruptedException{
 		boolean mainMenu= true;
 		boolean ShopSettingMenu= true;
 		Scanner sa = new Scanner(System.in);

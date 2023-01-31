@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 public class NewInvoice{
 
-		public static void createNewInvoice() throws IOException, InterruptedException{
-			String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
-	        String user = "sa";
-	        String pass = "root";
+		public static void createNewInvoice(String user,String pass,String url) throws IOException, InterruptedException{
+//			String url = "jdbc:sqlserver://localhost:1433;databaseName=InvoicingSystem;encrypt=true;trustServerCertificate=true";
+//	        String user = "sa";
+//	        String pass = "root";
 	        
 	        Scanner sa=new Scanner(System.in);
 	        BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
