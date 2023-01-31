@@ -44,7 +44,7 @@ public class Menu{
 				break;
 
 			case 5:
-				
+				ReportInvoice.reportAllInvoice();
 				break;
 			case 6:
 
