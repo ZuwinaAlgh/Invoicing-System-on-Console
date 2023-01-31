@@ -16,20 +16,15 @@ public class ShopSetting {
 	// Shop Setting Menu
 	public static void ShopSettingMenu(String user,String pass,String url)throws IOException, InterruptedException{
 		boolean mainMenu= true;
-		boolean ShopSettingMenu= true;
+		boolean ShopSettingMenu1= true;
 		Scanner sa = new Scanner(System.in);
 		
-	while (ShopSettingMenu) {
-		System.out.println("###..........SHOP SETTING..........###");
-		System.out.println("###Please choose one option........###");
-		System.out.println("1.--Load Data (invoices)--");
-		System.out.println("2.--Load Data (Items)--");
-		System.out.println("3.--Set Shop Name--");
-		System.out.println("4.--Set Invoice Header--");
-		System.out.println("5.--Go Back To MAIN MENU--");
-		System.out.println("###............THANK YOU............###");
-		String ShopSettingMenu1 = sa.next();
-		int option = Integer.parseInt(ShopSettingMenu1);
+		while (ShopSettingMenu1) {
+			for(String x:ShopSettingMenu. ShopSettingMenuArray()) {
+				System.out.println(x);
+			}
+
+		int option =sa.nextInt();
 		switch (option) {
 		case 1:
 			ShopSetting.insertdata();
@@ -44,7 +39,7 @@ public class ShopSetting {
 			ShopSetting.insertInvoiceHeaderdata();
 			break;
 		case 5:	
-			ShopSettingMenu=false;
+			ShopSettingMenu1=false;
 			mainMenu=true;
 		}}}
 	
