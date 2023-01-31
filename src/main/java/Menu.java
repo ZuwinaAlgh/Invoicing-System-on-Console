@@ -8,7 +8,7 @@ public class Menu{
 	public static void main(String[] args)throws IOException, InterruptedException{
 	boolean mainMenu= true;
 	boolean ShopSettingMenu1= true;
-	boolean ManageShopMenu= true;
+	boolean ManageShopMenu1= true;
 	Scanner sa = new Scanner(System.in);
 
 	
@@ -56,12 +56,12 @@ public class Menu{
 				if(option==0) {
 				mainMenu=false;
 				ShopSettingMenu1=false;
-				ManageShopMenu=false;
+				ManageShopMenu1=false;
 				}
 				else if(option==1) {
 					mainMenu=true;
 					ShopSettingMenu1=false;
-					ManageShopMenu=false;
+					ManageShopMenu1=false;
 				}
 			
 			

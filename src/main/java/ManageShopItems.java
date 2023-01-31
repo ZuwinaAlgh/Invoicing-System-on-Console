@@ -14,19 +14,14 @@ public class ManageShopItems {
 	public static void ManageShopMenu(String user,String pass,String url)throws IOException, InterruptedException{
 		boolean mainMenu= true;
 		boolean ShopSettingMenu= true;
-		boolean ManageShopMenu=true;
+		boolean ManageShopMenu1=true;
 		Scanner sa = new Scanner(System.in);
-		while (ManageShopMenu) {
-			System.out.println("###..........MANAGE SHOP..........###");
-			System.out.println("###Please choose one option........###");
-			System.out.println("1.--Add Items--");
-			System.out.println("2.--Delete Items--");
-			System.out.println("3.--Change Item Price --");
-			System.out.println("4.--Report All Items--");
-			System.out.println("5.--Go Back TO MAIN MENU--");
-			System.out.println("###............THANK YOU............###");
-			String ManageShopMenu1 = sa.next();
-			int option = Integer.parseInt(ManageShopMenu1);
+		while (ManageShopMenu1) {
+			for(String x:ManageShopMenu. ManageShopMenuArray()) {
+				System.out.println(x);
+		}
+			
+			int option = sa.nextInt();
 			switch (option) {
 			case 1:
 				ManageShopItems.addItems();
@@ -42,7 +37,7 @@ public class ManageShopItems {
 				ManageShopItems.ReportAllItems();
 				break;
 			case 5:
-				ManageShopMenu=false;
+				ManageShopMenu1=false;
 				ShopSettingMenu=false;
 				mainMenu=false;
 			}
