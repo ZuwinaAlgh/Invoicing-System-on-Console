@@ -27,12 +27,11 @@ public class ReportInvoice {
         ResultSet rs=st.executeQuery(sql);
         
         while (rs.next()) {
+        	System.out.println("Number Of Items"+rs.getString("NumberOfItems"));
+         	System.out.println("NO OF INVOICE"+rs.getString("NO_OF_INVOICE"));
+         	System.out.println("Total Sale"+rs.getString("Total_Sale"));
         	
-        	 int NumberOfItems=rs.getInt("Number_Of_Items");
-        	 int NO_OF_INVOICE=rs.getInt("Customer_Id");
-        	 float Total_Sale=rs.getFloat("Total_Amount");
-             
-       System.out.println(NumberOfItems+NO_OF_INVOICE+Total_Sale);
+   
        
         }}
   
