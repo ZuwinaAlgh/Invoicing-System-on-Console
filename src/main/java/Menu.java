@@ -40,7 +40,7 @@ public class Menu{
 				NewInvoice.createNewInvoice();
 				break;
 			case 4:
-				
+				ReportInvoice.statisticsReport();
 				break;
 
 			case 5:
